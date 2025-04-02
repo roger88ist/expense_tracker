@@ -12,7 +12,7 @@ class CsvInterface:
       mode = 'a'
     else:
       # write to file
-      mode = 'b'
+      mode = 'w'
 
     with open(self.file_path, mode = mode, newline='') as file:
       if (mode == 'w'):
