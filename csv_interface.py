@@ -14,9 +14,9 @@ class CsvInterface:
       # write to file
       mode = 'w'
 
-    with open(self.file_path, mode = mode, newline='') as file:
+    with open(self.file_path, mode=mode, newline='') as file:
+      writer = csv.DictWriter(file, fieldnames=self.expenses[0].keys()) # Create a CSV DictWriter
       if (mode == 'w'):
-        writer = csv.DictWriter(file, fieldnames=self.expenses[0].keys()) # Create a CSV DictWriter
         writer.writeheader() # Write the header (fieldnames)
-      else:
-        writer.writerows(self.expenses) # Write the rows of data
+
+      writer.writerows(self.expenses) # Write the rows of data
