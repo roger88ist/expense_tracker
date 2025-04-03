@@ -15,7 +15,7 @@ class ExpenseTracker:
       if (item["date"] and item["category"] and item["amount"] and item["description"]):
         print(f"{index+1}. Date: {item["date"]}, Cat: {item["category"]}, Amount: {item["amount"]}, Description: {item["description"]}", )
       else:
-      	print(f"{index+1}. - Information is missing")
+        print(f"{index+1}. - Information is missing")
 
   def set_budget(self):
     self.budget = int(input("Enter Monthly Budget:"))
