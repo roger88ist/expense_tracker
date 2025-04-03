@@ -1,9 +1,11 @@
 from expense_item import ExpenseItem
+from csv_interface import CsvInterface
 
 class ExpenseTracker:
   def __init__(self):
     self.history = []
     self.budget = 0
+    self.load_csv()
 
   def add_expense(self):
     self.history.append(ExpenseItem().details())
@@ -31,4 +33,5 @@ class ExpenseTracker:
   
   def write_to_csv(self, file_path = "expenses.csv"):
     ExpenseToCsv(self.history, file_path)
-    self.history = [] #clear the history storage once it is written to csv to prevent duplicates
+    self.history = [] #clear the history storage once it is written to csv to prevent duplicates  def load_csv(self, file_path = "expenses.csv"):
+    self.history = CsvInterface(self.history, file_path).load_csv()
