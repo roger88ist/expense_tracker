@@ -11,13 +11,9 @@ class ExpenseTracker:
   def show_history(self):
     for index, item in enumerate(self.history):
       if (item["date"] and item["category"] and item["amount"] and item["description"]):
-        print("Expense:", index + 1)
-        print("  Date:", item["date"])
-        print("  Cat:", item["category"])
-        print("  Amount:", item["amount"])
-        print("  Description:", item["description"])
+        print(f"{index+1}. Date: {item["date"]}, Cat: {item["category"]}, Amount: {item["amount"]}, Description: {item["description"]}", )
       else:
-        print("Expense:", index + 1, "- Information is missing")
+      	print(f"{index+1}. - Information is missing")
 
   def set_budget(self):
     self.budget = int(input("Enter Monthly Budget:"))
