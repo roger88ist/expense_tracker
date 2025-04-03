@@ -31,7 +31,8 @@ class ExpenseTracker:
     else:
       print("You have reached your budget!")
   
-  def write_to_csv(self, file_path = "expenses.csv"):
-    ExpenseToCsv(self.history, file_path)
-    self.history = [] #clear the history storage once it is written to csv to prevent duplicates  def load_csv(self, file_path = "expenses.csv"):
+  def save_to_csv(self, file_path = "expenses.csv"):
+    CsvInterface(self.history, file_path).write_csv()
+
+  def load_csv(self, file_path = "expenses.csv"):
     self.history = CsvInterface(self.history, file_path).load_csv()
